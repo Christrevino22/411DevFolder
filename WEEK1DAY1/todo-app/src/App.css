@@ -1,0 +1,15 @@
+/* .app {
+  background-color: beige;
+} */
+
+button {
+  display: flex;
+  flex-direction: column;
+}
+
+ul li {
+  text-decoration: none;
+  background-color: beige;
+  width: fit-content;
+  border: 2px black;
+}
