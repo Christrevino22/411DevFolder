@@ -38,7 +38,7 @@ class App extends Component {
   }
   //hint function called handle remove and look into the slice method and find index!!!!????
   handleRemove() {
-    this.setState({})
+    this.setState({});
   }
 
   render() {
@@ -48,11 +48,13 @@ class App extends Component {
         <h1>Below is my click me button please enjoy the button!!!!</h1>
         <input value={this.state.text} onChange={this.handleChange} />
         <button onClick={this.handleClick}>Submit Task</button>
-        
-          <ul> {this.state.todos.map((item,index) => {
-            return <li key= {index}>{item}</li>
-          })} </ul>
-      
+
+        <ul>
+          {" "}
+          {this.state.todos.map((item, index) => {
+            return <li key={index}>{item}</li>;
+          })}{" "}
+        </ul>
       </div>
     );
   }
