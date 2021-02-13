@@ -1,5 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 
-export default function deleteButton() {
-  return <div></div>;
+export default class DeleteButton extends Component {
+  render() {
+    return <button> Delete ToDo</button>;
+  }
 }

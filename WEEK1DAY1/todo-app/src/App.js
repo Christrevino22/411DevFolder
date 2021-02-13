@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import DeleteButton from "./Components/DeleteButton";
 import "./App.css";
 
 class App extends Component {
@@ -11,7 +12,7 @@ class App extends Component {
       todos: [],
     };
     // this.handleClick = this.handleClick.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidUpdate() {
@@ -31,15 +32,19 @@ class App extends Component {
     //a little harder but also not as hArd as i though it was gonna be
   };
 
-  handleChange(event) {
+  handleChange = (event) => {
     console.log("****This is state****", this.state);
     console.log(event.target.value);
     this.setState({ text: event.target.value });
-  }
+  };
   //hint function called handle remove and look into the slice method and find index!!!!????
-  handleRemove() {
-    this.setState({});
-  }
+
+  handleRemove = (index) => {
+    console.log("this button was clicked");
+    let newTodos = this.state.todos;
+    newTodos.splice(index, 1);
+    this.setState({ todos: [...newTodos] });
+  };
 
   render() {
     return (
@@ -52,7 +57,14 @@ class App extends Component {
         <ul>
           {" "}
           {this.state.todos.map((item, index) => {
-            return <li key={index}>{item}</li>;
+            return (
+              <li key={index}>
+                {item}{" "}
+                <button type="button" onClick={this.handleRemove}>
+                  Remove
+                </button>{" "}
+              </li>
+            );
           })}{" "}
         </ul>
       </div>
